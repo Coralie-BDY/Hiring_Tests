@@ -1,0 +1,28 @@
+{
+  "name": "test_02",
+  "version": "1.0.0",
+  "description": "HTTP server for API REST",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "http",
+    "server"
+  ],
+  "author": "Coralie Baudry",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "convert-csv-to-json": "^1.3.0",
+    "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mariadb": "^2.5.3",
+    "nodemon": "^2.0.7"
+  }
+}
