@@ -2,11 +2,12 @@
 Exercice 2: Back
 
         api film:
+        a anime
         p policier
         sf science fiction
         g guerre
         c comedie
-        historique
+        h historique
         f fantastique 
         -------
         A adulte
