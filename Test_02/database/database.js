@@ -1,4 +1,5 @@
 const mariadb = require("mariadb")
+// const tab = require("./top-500-most-rented-movies.json")
 
 const pool= mariadb.createPool({
     host: process.env.MARIADB_HOST,
@@ -9,7 +10,7 @@ const pool= mariadb.createPool({
     connectionLimit: process.env.MARIADB_CONNECTLIMIT
 })
 
-//LISTER TOUS LES FILMS
+// LISTER TOUS LES FILMS
 async function getAllMovies() {
     return new Promise(async (resolve, reject) => {
         let conn;
@@ -23,7 +24,6 @@ async function getAllMovies() {
             return reject(err)
         } finally {
             if (conn) await conn.release()
-
         }
     })
 }
@@ -42,10 +42,10 @@ async function getMostRentedMoviesForYearN(annee, limit = 100) {
             return reject(err)
         } finally {
             if (conn) await conn.release()
-
         }
     })
 }
+
 //LISTER LES 100 FILMS LES PLUS LOUES
 async function getMostRentedMovies(limit = 100) {
     return new Promise(async (resolve, reject) => {
@@ -60,7 +60,6 @@ async function getMostRentedMovies(limit = 100) {
             return reject(err)
         } finally {
             if (conn) await conn.release()
-
         }
     })
 }
@@ -79,7 +78,6 @@ async function getMostRentedMovieForYearN(annee, annee) {
             return reject(err)
         } finally {
             if (conn) await conn.release()
-
         }
     })
 }
@@ -98,7 +96,6 @@ async function getMostRentedMovie() {
             return reject(err)
         } finally {
             if (conn) await conn.release()
-
         }
     })
 }
@@ -117,7 +114,6 @@ async function getAuthorMostRentedMovies(limit = 1) {
             return reject(err)
         } finally {
             if (conn) await conn.release()
-
         }
     })
 }
@@ -136,12 +132,51 @@ async function searchMovies(keyword) {
             return reject(err)
         } finally {
             if (conn) await conn.release()
-
         }
     })
 }
 
+// //CREATION DATABASE
+// async function createTable() {
+//         let conn;
+//         try {
+//             conn = await pool.getConnection();
+//             const sql = "CREATE TABLE IF NOT EXISTS movies (annee INT, nbre_de_prets INT,titre VARCHAR, auteur VARCHAR,editeur VARCHAR, indice VARCHAR, bib VARCHAR, cote VARCHAR, cat_1 VARCHAR, cat_2 VARCHAR)"
+//             const rows = await conn.query(sql)
+//             console.log("response", rows)
+//         } catch (err) {
+//             throw err
+//         } finally {
+//             if (conn) await conn.end()
+//             console.log('Database created')
+//         }
+// }
+
+//CREATION DES DONNEES, NE FONCTIONNE PAS RENVOI QUE DU UNDEFINED
+// async function insertTable() {
+//     return new Promise(async (resolve, reject) => {
+//         let conn;
+//         try {
+//             conn = await pool.getConnection();
+//             const res = tab.map((item) => {
+//                conn.query("INSERT INTO movies values (?,?,?,?,?,?,?,?,?,?)",
+//                     [item.annee, item.nbre_de_prets, item.titre, item.auteur, item.editeur, item.indice, item.bib, item.cote, item.cat_1, item.cat_2]);
+//             })
+//             console.log("data", res)
+//             return resolve(res)
+//         } catch (err) {
+//             return reject(err)
+//         } finally {
+//             if (conn) await conn.release()
+//             console.log('Database written')
+//         }
+//     })
+// }
+
+
 module.exports = {
+    // createTable,
+    // insertTable,
     getAllMovies,
     getMostRentedMoviesForYearN,
     getMostRentedMovies,

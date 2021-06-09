@@ -2,6 +2,10 @@ const express = require("express")
 const db = require("./database/database")
 const router = express.Router()
 
+// db.createTable().then(r => console.log(r))
+
+// db.insertTable().then(r => console.log(r))
+
 router.get("/", (req, res) => {
     db.getAllMovies()
         .then(data => res.json(data))
