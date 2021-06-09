@@ -4,7 +4,7 @@ Thematic : back office
 
 ## Context
 
-[This database](src/top-500-most-rented-movies.csv) (csv file) is a list of rented movies in a DVD media shop. Each recording is described by the following properties :
+[This database](database/top-500-most-rented-movies.csv) (csv file) is a list of rented movies in a DVD media shop. Each recording is described by the following properties :
 
 |Field| Description|
 | :--------------- |:---------------|
@@ -25,8 +25,9 @@ Thematic : back office
 
 
 FYI, here is the *MOVIE_STYLE* classification:
+
 |Field|Description|
-|:---|:---|
+| :--------------- |:---------------|
 |A or Anime |Cartoon or animated movie|
 |P|Thriller|
 |SF|Science Fiction|
