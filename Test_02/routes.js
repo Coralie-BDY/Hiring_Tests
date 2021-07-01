@@ -29,8 +29,7 @@ router.get("/100-most-rented-movies", (req, res) => {
 
 router.get("/most-rented-movie/:annee", (req, res) => {
     let annee = req.params.annee
-    let annee2 = req.params.annee
-    db.getMostRentedMovieForYearN(annee, annee2)
+    db.getMostRentedMovieForYearN(annee, annee)
         .then(data => res.json(data))
         .catch(err => res.status(500).json(err))
 })
